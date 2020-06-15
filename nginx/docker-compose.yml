@@ -1,0 +1,13 @@
+version: '2.0'
+services:
+  nginx:
+    restart: always
+    image: nginx:1.11.6-alpine
+    ports:
+      - 8081:80
+      - 80:80
+      - 443:443
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+      - /data/docker/jenkins/workspace/churchDonate/dist:/public_html
